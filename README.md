@@ -1,5 +1,5 @@
 # LimblessGPT
-LimblessGPT is a Discord bot that can hold conversations using the GPT-3.5-Turbo Model through OpenAI's API
+LimblessGPT is a Discord bot that can hold conversations using the [GPT-3.5-Turbo Model](https://platform.openai.com/docs/guides/chat/introduction) through OpenAI's API
 
 ## Usage ⚙️
 `/start` begins the conversation
@@ -15,10 +15,17 @@ One of the challenges of using GPT-3 models through API calls is that conversati
 
 In other words, follow up questions aren't really possible.
 
-LimblessGPT however, is able to store the context of previous API responses to effectively hold back-and-forth conversations.
+LimblessGPT however, is able to store the context of previous API responses to effectively hold back-and-forth conversations, similiar to ChatGPT.
 ##### See the following conversation about quantum mechanics 👇
 
 ![image](https://user-images.githubusercontent.com/87991619/224595079-6e77de26-65cd-4e2c-8f5c-5120e5d78f0b.png)
+
+By leveraging GPT-3.5-Turbo, we can open the door to concurrent conversations, where multiple users can hold conversations at once, which is definitely appealing for collaborative-esque use cases.
+
+Not only that, but it can also keep note of messages not being directly sent to it. Discord is a place where multiple people are constantly talking, and LimblessGPT keeps track of this to make responses more relevant.
+##### The following image highights this 👇
+
+![image](https://user-images.githubusercontent.com/87991619/225807331-898418eb-98ba-487c-9398-d3fa02a1d356.png)
 
 
 ## Developer Notes 📝
