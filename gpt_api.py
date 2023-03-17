@@ -15,7 +15,7 @@ def chat_call(context):
             return openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages = context,
-            max_tokens= 200,
+            max_tokens= 400,
             temperature=0
             )
 
