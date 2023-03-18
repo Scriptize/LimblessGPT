@@ -6,7 +6,7 @@ LimblessGPT is a Discord bot that can hold conversations using OpenAI's [GPT-3.5
 ![image](https://user-images.githubusercontent.com/87991619/224593417-04f60b46-7c29-423d-b57d-48f43c24c586.png)
 
 ## How it works 🤔
-After the `/start` command is ran, the bot begins listening for messages in the current channel that start with "Limbless,"
+After the `/start` command is ran, the bot begins listening for messages in all channels that start with "Limbless,"
 
 ![image](https://user-images.githubusercontent.com/87991619/224593917-c7c1ff96-7999-4699-a91a-d26b50a011e6.png)
 
