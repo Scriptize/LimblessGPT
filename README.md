@@ -1,6 +1,5 @@
 # LimblessGPT
-LimblessGPT is a Discord bot that can hold conversations using the [GPT-3.5-Turbo Model](https://platform.openai.com/docs/guides/chat/introduction) through OpenAI's API
-
+LimblessGPT is a Discord bot that can hold conversations using OpenAI's [GPT-3.5-Turbo Model](https://platform.openai.com/docs/guides/chat/introduction) 
 ## Usage ⚙️
 `/start` begins the conversation
 
