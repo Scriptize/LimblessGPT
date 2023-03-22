@@ -4,7 +4,7 @@ import openai
 import asyncio
 from gpt_api import chat_call
 
-bot = lightbulb.BotApp(token='YOUR TOKEN HERE', help_slash_command=True,intents=hikari.Intents.GUILD_MESSAGES,default_enabled_guilds=()))
+bot = lightbulb.BotApp(token='YOUR TOKEN HERE', help_slash_command=True,intents=hikari.Intents.GUILD_MESSAGES,default_enabled_guilds=())
 
 @bot.command()
 @lightbulb.command("start", "Starts Convo")
