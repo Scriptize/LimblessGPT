@@ -3,7 +3,7 @@ LimblessGPT is a Discord bot that can hold conversations using OpenAI's [GPT-3.5
 
 If you fork this repo, run `pip install -r requirements.txt` to install dependencies
 
-If you want to have access to LimblessGPT in Discord when it is deployed in the future, [click here!](https://discord.com/api/oauth2/authorize?client_id=1084338217274322964&permissions=8&scope=bot)
+If you want to have LimblessGPT in your Discord server, [click here!](https://discord.com/api/oauth2/authorize?client_id=1084338217274322964&permissions=8&scope=bot)
 
 ## Usage ⚙️
 `/start` begins the conversation
