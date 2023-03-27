@@ -15,7 +15,8 @@ context =[
         ]
     
 @bot.command()
-@lightbulb.command("info", "getting started")
+@lightbulb.command("welcome", "getting started")
+@lightbulb.implements(lightbulb.SlashCommand)
 async def help(message):
     await message.respond("Hello, I am Limbless's AI model.\nStart your prompt with 'Limbless,' to begin.")
 
@@ -23,7 +24,7 @@ async def help(message):
 async def get_reply(event):
         global context
         
-        username = event.message.author.username # user that sent message
+        username = event.message.author.username 
         
 
         if event.message.content.startswith('Limbless,'): 
@@ -101,17 +102,16 @@ async def start_convo(message):
     async def get_reply(event):
             
             
-            #content_value = data['choices'][0]['message']['content']
-            #username = event.message.author.username
+            
             if event.message.content.startswith('Davinci,'):
                 if event.message.content == "Davinci, GLOBAL SHUTDOWN":
                         bot.unsubscribe(hikari.GuildMessageCreateEvent, get_reply)
                         proceed = False
                 if proceed:
-                    #context.append({"role":"system", "content": f"The following message is by {username}: {event.message.content[10:]}"})
+                    
                     content_req = davinci_call(event.message.content[10:])
                     response = content_req["choices"][0]["text"]
-                    #context.append({"role":"assistant", "content": response})
+                    
                     await event.message.respond(event.message.author.mention + ", " + response,reply=True,mentions_reply=True)
                     print(response)
 
@@ -125,7 +125,7 @@ async def start_convo(message):
 @lightbulb.command("delete", "deletes history")
 @lightbulb.implements(lightbulb.SlashCommand)
 async def delete_history(ctx):
-    # bulk delete only allows deleting messages younger than 14 days
+    
     bulk_delete_limit = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=int(ctx.options.timelapse))
     async for message in bot.rest.fetch_messages(int(ctx.options.channelid)):
         if message.created_at > bulk_delete_limit and (message.author.id == int(ctx.options.userid)):
