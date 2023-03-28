@@ -31,7 +31,7 @@ Not only that, but it can also keep note of messages not addressed to it. Discor
 
 ![image](https://user-images.githubusercontent.com/87991619/228068613-dbaa0638-4cc5-418b-96a7-4e3453ef32cb.png)
 
-Obviously, storing the context for all these message takes up many tokens, so LimblessGPT can resize it's context size to answer relevantly without overload 👇
+Obviously, storing the context for all these messages takes up many tokens (there is a limit), so LimblessGPT can resize it's context size to answer relevantly without overload 👇
 
 ![image](https://user-images.githubusercontent.com/87991619/228068391-a333ff02-657b-4dc1-8c62-e946ca526738.png)
 
