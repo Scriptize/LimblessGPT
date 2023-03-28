@@ -1,5 +1,5 @@
 # LimblessGPT
-LimblessGPT is a Discord bot that can hold conversations using OpenAI's [GPT-3.5-Turbo Model](https://platform.openai.com/docs/guides/chat/introduction)
+LimblessGPT is a Discord bot that can hold concurrent, cross channel conversations using OpenAI's [GPT-3.5-Turbo Model](https://platform.openai.com/docs/guides/chat/introduction)
 
 If you fork this repo, run `pip install -r requirements.txt` to install dependencies
 
