@@ -48,7 +48,7 @@ async def get_reply(event):
                 except openai.error.InvalidRequestError:
                     print({"Rezing at guild context length":len(guild_context)})
                     await event.message.respond("Give me a moment, I'm resizing my context capacity...", reply=True,mentions_reply=True)
-                    =
+                    
                     guild_msg_count = sum("guild_id" in d and d["guild_id"] == event.guild_id for d in context)
                     
                     new_context = context[:6]
@@ -69,7 +69,7 @@ async def get_reply(event):
                     
                     guild_context = [{'role': message['role'], 'content': message['content']} for message in filtered_context]
                     try:
-                        content_req = chat_call(new_context[6:] + guild_context)
+                        content_req = chat_call(new_context[:6] + guild_context)
                     except hikari.errors.BadRequestError: 
                         await event.message.respond("`SYSTEM` The response to this request is too long.",reply=True,mentions_reply=True)
                     
