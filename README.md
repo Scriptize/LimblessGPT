@@ -11,7 +11,7 @@ If you want to have LimblessGPT in your Discord server, [click here!](https://di
 ![image](https://user-images.githubusercontent.com/87991619/228074921-3d28b5d2-46e7-4f55-8599-8444b3f165da.png)
 
 ## How it works 🤔
-As soon as the bot enters a Discord server, the bot begins listening for messages in all channels that start with "Limbless,"
+As soon as the bot enters a Discord server, it begins listening for messages in all channels that start with "Limbless,"
 
 ![image](https://user-images.githubusercontent.com/87991619/228075066-8c5e67de-848f-4185-907c-557ef2c4b3dc.png)
 
