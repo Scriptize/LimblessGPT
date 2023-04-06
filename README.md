@@ -24,7 +24,7 @@ LimblessGPT however, is able to store the context of previous API responses to e
 
 ![image](https://user-images.githubusercontent.com/87991619/224595079-6e77de26-65cd-4e2c-8f5c-5120e5d78f0b.png)
 
-By leveraging GPT-3.5-Turbo, we can open the door to concurrent conversations, where multiple users can hold conversations at once, which is definitely appealing for collaborative-esque use cases.
+By leveraging GPT-3.5-Turbo, we can open the door to concurrent conversations, where multiple users can hold conversations at once — definitely appealing for collaborative-esque use cases.
 
 Not only that, but it can also keep note of messages not addressed to it. Discord is a place where multiple people are constantly talking, and LimblessGPT keeps track of this to make responses more relevant.
 ##### The following image highights this 👇
