@@ -7,10 +7,12 @@ import datetime
 from models import Context_Handler, Resource_Handler
 from gpt_api import chat_call
 import json
+import os
 
-bot = lightbulb.BotApp(token='YOUR TOKEN HERE',intents=hikari.Intents.GUILD_MESSAGES,default_enabled_guilds=())
+TOKEN = os.environ.get('TOKEN')
 CONTEXT = Context_Handler()
 RESOURCE = Resource_Handler()
+bot = lightbulb.BotApp(token=TOKEN,intents=hikari.Intents.GUILD_MESSAGES,default_enabled_guilds=())
 
 CONTEXT.content.extend([
             {"role": "system", "content": "You are a helpful assistant orginating from the Limbless Discord Server"},
@@ -50,8 +52,6 @@ async def get_reply(event):
                 pprint(guild_context)
                 try: 
                     #attempt API req
-                    
-                        await bot.rest.trigger_typing(event.message.channel_id)
                         content_req = chat_call(CONTEXT.content[:6] + guild_context)
                         print(content_req)
 
@@ -67,18 +67,19 @@ async def get_reply(event):
                     content_req = chat_call(CONTEXT.content[:6] + guild_context)
                     print({"The context length is:":len(CONTEXT)})
                 
-                if content_req["choices"][0]["finish_reason"] == "function_call":
-                    RESOURCE.function_name = content_req["choices"][0]['message']["function_call"]['name']
-                    channel_name = json.loads(content_req["choices"][0]['message']["function_call"]["arguments"])['name']
-                    if RESOURCE.function_name == "create_text_channel":
-                        category = json.loads(content_req["choices"][0]['message']["function_call"]["arguments"])['category']
-                        if category == "None":
-                            category = None
-                        await RESOURCE.create_text_channel(bot,guild_id,channel_name,category)
-                        await event.message.respond(event.message.author.mention + ", " + "successfully created resource!",reply=True,mentions_reply=True)
+                # if content_req["choices"][0]["finish_reason"] == "function_call":
+                #     RESOURCE.function_name = content_req["choices"][0]['message']["function_call"]['name']
+                #     channel_name = json.loads(content_req["choices"][0]['message']["function_call"]["arguments"])['name']
+                #     if RESOURCE.function_name == "create_text_channel":
+                #         category = json.loads(content_req["choices"][0]['message']["function_call"]["arguments"])['category']
+                #         if category == "None":
+                #             category = None
+                #         await RESOURCE.create_text_channel(bot,guild_id,channel_name,category)
+                #         await event.message.respond(event.message.author.mention + ", " + "successfully created resource!",reply=True,mentions_reply=True)
                     
 
-                else:    
+                else: 
+                    await bot.rest.trigger_typing(event.message.channel_id)
                     response = content_req["choices"][0]["message"]["content"]
                     print(response)
                     print(len(response))

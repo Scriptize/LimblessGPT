@@ -2,6 +2,9 @@ import openai
 import asyncio
 import hikari
 import lightbulb
+import os
+
+API_KEY = os.environ.get('API_KEY')
 
 def davinci_call(content):
             
@@ -14,6 +17,15 @@ def davinci_call(content):
             )
 
 def chat_call(context):
+            openai.api_key = API_KEY
+            return openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages = context,
+            max_tokens= 300,
+            temperature=0
+            )
+
+def chat_call_4(context):
             openai.api_key = "YOUR TOKEN HERE"
             return openai.ChatCompletion.create(
             model="gpt-4",
