@@ -17,9 +17,9 @@ bot = lightbulb.BotApp(token=TOKEN,intents=hikari.Intents.GUILD_MESSAGES,default
 CONTEXT.content.extend([
             {"role": "system", "content": "You are a helpful assistant orginating from the Limbless Discord Server"},
             {"role": "system", "content": "You are unique in that you can handle concurrent conversations in multiple channels and leverage extracontextual tuning for relavance"},
-            {"role": "system", "content": "You work by accumulating context everytime someone says 'Limbless,' in a channel and respond acccordingly"},
+            {"role": "system", "content": "Respond to questions concisely,"},
             {"role": "system", "content": 'Whenever you are asked to write, generate, or provide code or code snippets, format it like this example: ```python\nprint("hello world")\n``` (type the name of the language after the first 3 tics)'},
-            {"role": "system", "content": "If you have a lot of information or code before prompted, only respond to the most relevant parts"},
+            {"role": "system", "content": "If your answer/code is long, do not finish it. Instead ask, 'would you like me to continue?'"},
             {"role": "assistant", "content": "Hello, I am Limbless's AI model.\nStart your prompt with 'Limbless,' to begin."}
         ])
     
@@ -44,7 +44,7 @@ async def get_reply(event):
         if event.message.content.startswith('Limbless,'): 
             async with bot.rest.trigger_typing(event.message.channel_id):
                 #Add message to context
-                CONTEXT.content.append({"role":"system", "content":f"This user's name is {username}: {event.message.content[10:]}", "guild_id":guild_id}) 
+                CONTEXT.content.append({"role":"system", "content":f"This user's name is {username.title()}: {event.message.content[10:]}", "guild_id":guild_id}) 
                 print({"The context length is:":len(CONTEXT)})
 
                 #filter for messages in server
@@ -88,7 +88,7 @@ async def get_reply(event):
                     print({"The context length is:":len(CONTEXT)})
         
         elif username != "Limbless_GPT":
-            CONTEXT.content.append({"role":"system", "content":f"This user's name is {username}: {event.message.content[10:]}", "guild_id":guild_id})
+            CONTEXT.content.append({"role":"system", "content":f"This user's name is {username.title()}: {event.message.content[10:]}", "guild_id":guild_id})
             print({"The context length is:":len(CONTEXT)})
            
 
@@ -113,4 +113,4 @@ async def delete_history(ctx):
         if message.created_at > bulk_delete_limit and (message.author.id == int(ctx.options.userid)):
             await bot.rest.delete_message(int(ctx.options.channelid), message.id)
 
-bot.run()
+bot.run(activity=hikari.Activity(name="your server!",type=hikari.ActivityType.LISTENING))

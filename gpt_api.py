@@ -19,9 +19,9 @@ def davinci_call(content):
 def chat_call(context):
             openai.api_key = API_KEY
             return openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4",
             messages = context,
-            max_tokens= 300,
+            max_tokens= 450,
             temperature=0
             )
 
